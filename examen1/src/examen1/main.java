@@ -98,6 +98,15 @@ public class main extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
+        jd_puntaje = new javax.swing.JDialog();
+        sp_nuevpunt = new javax.swing.JSpinner();
+        jButton19 = new javax.swing.JButton();
+        jd_copias = new javax.swing.JDialog();
+        sp_nuevcopias = new javax.swing.JSpinner();
+        jButton20 = new javax.swing.JButton();
+        jd_genero = new javax.swing.JDialog();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton21 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -460,20 +469,50 @@ public class main extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jl_mod);
 
         jButton10.setText("modificar titulo");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
 
         jButton11.setText("modificar descripcion");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
 
         jButton12.setText("modificar puntaje");
+        jButton12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton12MouseClicked(evt);
+            }
+        });
 
         jButton13.setText("modificar copias");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
 
         jButton14.setText("modificar genero");
 
         jButton15.setText("modificar valor");
 
         jButton16.setText("modificar edicion");
+        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton16MouseClicked(evt);
+            }
+        });
 
         jButton17.setText("modififcar autor");
+        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton17MouseClicked(evt);
+            }
+        });
 
         jButton18.setText("modificar publicacion");
 
@@ -529,6 +568,96 @@ public class main extends javax.swing.JFrame {
                         .addGap(0, 49, Short.MAX_VALUE))
                     .addComponent(jScrollPane3))
                 .addContainerGap())
+        );
+
+        sp_nuevpunt.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
+
+        jButton19.setText("modificar puntaje");
+        jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton19MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_puntajeLayout = new javax.swing.GroupLayout(jd_puntaje.getContentPane());
+        jd_puntaje.getContentPane().setLayout(jd_puntajeLayout);
+        jd_puntajeLayout.setHorizontalGroup(
+            jd_puntajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_puntajeLayout.createSequentialGroup()
+                .addGroup(jd_puntajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_puntajeLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jButton19))
+                    .addGroup(jd_puntajeLayout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addComponent(sp_nuevpunt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+        jd_puntajeLayout.setVerticalGroup(
+            jd_puntajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_puntajeLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(sp_nuevpunt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton19)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        sp_nuevcopias.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
+        jButton20.setText("guardar copias");
+        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton20MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_copiasLayout = new javax.swing.GroupLayout(jd_copias.getContentPane());
+        jd_copias.getContentPane().setLayout(jd_copiasLayout);
+        jd_copiasLayout.setHorizontalGroup(
+            jd_copiasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_copiasLayout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(sp_nuevcopias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_copiasLayout.createSequentialGroup()
+                .addContainerGap(117, Short.MAX_VALUE)
+                .addComponent(jButton20)
+                .addGap(100, 100, 100))
+        );
+        jd_copiasLayout.setVerticalGroup(
+            jd_copiasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_copiasLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(sp_nuevcopias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton20)
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "fantasia", "romance", "accion", "historia" }));
+
+        jButton21.setText("modificar genero");
+
+        javax.swing.GroupLayout jd_generoLayout = new javax.swing.GroupLayout(jd_genero.getContentPane());
+        jd_genero.getContentPane().setLayout(jd_generoLayout);
+        jd_generoLayout.setHorizontalGroup(
+            jd_generoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_generoLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addGroup(jd_generoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton21)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(112, Short.MAX_VALUE))
+        );
+        jd_generoLayout.setVerticalGroup(
+            jd_generoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_generoLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addComponent(jButton21)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -703,6 +832,91 @@ public class main extends javax.swing.JFrame {
         jd_modificar.setVisible(true);
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            String nuevnombre = JOptionPane.showInputDialog("ingrese el nuevo nombre: ");
+            DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
+            ((libro) modelo.get(jl_mod.getSelectedIndex())).setTitulo(nuevnombre);
+            jl_mod.setModel(modelo);
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            String nuevnombre = JOptionPane.showInputDialog("ingrese descripcion: ");
+            DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
+            ((libro) modelo.get(jl_mod.getSelectedIndex())).setDescripcion(nuevnombre);
+            jl_mod.setModel(modelo);
+        }
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            String nuevnombre = JOptionPane.showInputDialog("ingrese edicion: ");
+            DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
+            ((libro) modelo.get(jl_mod.getSelectedIndex())).setEdicion(nuevnombre);
+            jl_mod.setModel(modelo);
+        }
+    }//GEN-LAST:event_jButton16MouseClicked
+
+    private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            String nuevnombre = JOptionPane.showInputDialog("ingrese el autor: ");
+            DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
+            ((libro) modelo.get(jl_mod.getSelectedIndex())).setAutor(nuevnombre);
+            jl_mod.setModel(modelo);
+        }
+    }//GEN-LAST:event_jButton17MouseClicked
+
+    private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            jd_puntaje.setModal(true);
+            jd_puntaje.pack();
+            jd_puntaje.setLocationRelativeTo(this);
+            jd_puntaje.setVisible(true);
+        }
+
+    }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            int nuevpunt = (Integer) sp_nuevpunt.getValue();
+            DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
+            ((libro) modelo.get(jl_mod.getSelectedIndex())).setPuntaje(nuevpunt);
+            jl_mod.setModel(modelo);
+            jd_puntaje.setVisible(false);
+        }
+
+
+    }//GEN-LAST:event_jButton19MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            jd_copias.setModal(true);
+            jd_copias.pack();
+            jd_copias.setLocationRelativeTo(this);
+            jd_copias.setVisible(true);
+        }
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
+        // TODO add your handling code here:
+        if (jl_mod.getSelectedIndex() >= 0) {
+            int nuevpunt = (Integer) sp_nuevcopias.getValue();
+            DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
+            ((libro) modelo.get(jl_mod.getSelectedIndex())).setCopias(nuevpunt);
+            jl_mod.setModel(modelo);
+            jd_copias.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton20MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -756,7 +970,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -764,6 +981,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -795,7 +1013,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_agregarlibro;
     private javax.swing.JDialog jd_comun;
+    private javax.swing.JDialog jd_copias;
+    private javax.swing.JDialog jd_genero;
     private javax.swing.JDialog jd_modificar;
+    private javax.swing.JDialog jd_puntaje;
     private javax.swing.JList<String> jl_biblioteca;
     private javax.swing.JList<String> jl_mislibros;
     private javax.swing.JList<String> jl_mod;
@@ -803,6 +1024,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPasswordField pf_password;
     private javax.swing.JDialog registro;
     private javax.swing.JSpinner sp_copias;
+    private javax.swing.JSpinner sp_nuevcopias;
+    private javax.swing.JSpinner sp_nuevpunt;
     private javax.swing.JSpinner sp_puntaje;
     private javax.swing.JSpinner sp_valor;
     private javax.swing.JTextField tf_autor;
