@@ -113,6 +113,10 @@ public class main extends javax.swing.JFrame {
         jd_fecha = new javax.swing.JDialog();
         dc_nuevfecha = new com.toedter.calendar.JDateChooser();
         jButton23 = new javax.swing.JButton();
+        jd_eliminar = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jl_eliminar = new javax.swing.JList<>();
+        jButton24 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -252,6 +256,11 @@ public class main extends javax.swing.JFrame {
         });
 
         jButton6.setText("eliminar libros");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_adminLayout = new javax.swing.GroupLayout(jd_admin.getContentPane());
         jd_admin.getContentPane().setLayout(jd_adminLayout);
@@ -288,6 +297,11 @@ public class main extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jl_mislibros);
 
         jButton7.setText("tomar prestado");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         jButton8.setText("regresar");
 
@@ -364,7 +378,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel20.setText("valor:");
 
-        jLabel21.setText("edicion: ");
+        jLabel21.setText("casa editora: ");
 
         jLabel22.setText("autor:");
 
@@ -404,7 +418,7 @@ public class main extends javax.swing.JFrame {
                         .addGroup(jd_agregarlibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jd_agregarlibroLayout.createSequentialGroup()
                                 .addComponent(dc_publicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton9))
                             .addGroup(jd_agregarlibroLayout.createSequentialGroup()
                                 .addGroup(jd_agregarlibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,7 +431,7 @@ public class main extends javax.swing.JFrame {
                                         .addComponent(tf_autor)
                                         .addComponent(sp_copias, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(sp_puntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(0, 137, Short.MAX_VALUE))))
                     .addGroup(jd_agregarlibroLayout.createSequentialGroup()
                         .addGap(210, 210, 210)
                         .addComponent(jLabel24)))
@@ -747,6 +761,41 @@ public class main extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        jl_eliminar.setModel(new DefaultListModel()
+        );
+        jScrollPane4.setViewportView(jl_eliminar);
+
+        jButton24.setText("eliminar");
+        jButton24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton24MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_eliminarLayout = new javax.swing.GroupLayout(jd_eliminar.getContentPane());
+        jd_eliminar.getContentPane().setLayout(jd_eliminarLayout);
+        jd_eliminarLayout.setHorizontalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addGroup(jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_eliminarLayout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jButton24)))
+                .addContainerGap(167, Short.MAX_VALUE))
+        );
+        jd_eliminarLayout.setVerticalGroup(
+            jd_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_eliminarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jButton24)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Biblioteca virtual");
@@ -876,6 +925,12 @@ public class main extends javax.swing.JFrame {
             if (actual == null) {
                 System.out.println("no existe ese usuario o ingreso sus datos mal.");
             } else {
+
+                DefaultListModel modelo2 = (DefaultListModel) jl_mislibros.getModel();
+                for (int i = 0; i < actual.getLibros().size(); i++) {
+                    modelo2.addElement(actual.getLibros().get(i));
+                }
+                jl_mislibros.setModel(modelo2);
                 jd_comun.setModal(true);
                 jd_comun.pack();
                 jd_comun.setLocationRelativeTo(this);
@@ -926,6 +981,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setTitulo(nuevnombre);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
         }
     }//GEN-LAST:event_jButton10MouseClicked
 
@@ -936,6 +992,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setDescripcion(nuevnombre);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
         }
     }//GEN-LAST:event_jButton11MouseClicked
 
@@ -946,6 +1003,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setEdicion(nuevnombre);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
         }
     }//GEN-LAST:event_jButton16MouseClicked
 
@@ -956,6 +1014,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setAutor(nuevnombre);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
         }
     }//GEN-LAST:event_jButton17MouseClicked
 
@@ -977,6 +1036,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setPuntaje(nuevpunt);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
             jd_puntaje.setVisible(false);
         }
 
@@ -1000,6 +1060,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setCopias(nuevpunt);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
             jd_copias.setVisible(false);
         }
     }//GEN-LAST:event_jButton20MouseClicked
@@ -1017,10 +1078,11 @@ public class main extends javax.swing.JFrame {
     private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
         // TODO add your handling code here:
         if (jl_mod.getSelectedIndex() >= 0) {
-            String nuevpunt = (String)cb_nuevgen.getSelectedItem();
+            String nuevpunt = (String) cb_nuevgen.getSelectedItem();
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setGenero(nuevpunt);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
             jd_genero.setVisible(false);
         }
     }//GEN-LAST:event_jButton21MouseClicked
@@ -1042,6 +1104,7 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setValor(nuevpunt);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
             jd_valor.setVisible(false);
         }
     }//GEN-LAST:event_jButton22MouseClicked
@@ -1063,9 +1126,46 @@ public class main extends javax.swing.JFrame {
             DefaultListModel modelo = (DefaultListModel) jl_mod.getModel();
             ((libro) modelo.get(jl_mod.getSelectedIndex())).setPublicacion(nuevpunt);
             jl_mod.setModel(modelo);
+            jl_biblioteca.setModel(modelo);
             jd_fecha.setVisible(false);
         }
     }//GEN-LAST:event_jButton23MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+
+        DefaultListModel modelo = (DefaultListModel) jl_biblioteca.getModel();
+        jl_eliminar.setModel(modelo);
+        jd_eliminar.setModal(true);
+        jd_eliminar.pack();
+        jd_eliminar.setLocationRelativeTo(this);
+        jd_eliminar.setVisible(true);
+
+
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
+        // TODO add your handling code here:
+        if (jl_eliminar.getSelectedIndex() >= 0) {
+            DefaultListModel modelo = (DefaultListModel) jl_eliminar.getModel();
+            modelo.remove(jl_eliminar.getSelectedIndex());
+            jl_biblioteca.setModel(modelo);
+            jl_eliminar.setModel(modelo);
+            jd_eliminar.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton24MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo2 = (DefaultListModel) jl_mislibros.getModel();
+        DefaultListModel modelo1 = (DefaultListModel) jl_biblioteca.getModel();
+        if (jl_biblioteca.getSelectedIndex() >= 0) {
+            modelo2.addElement(modelo1.get(jl_biblioteca.getSelectedIndex()));
+            modelo1.remove(jl_biblioteca.getSelectedIndex());
+            jl_mislibros.setModel(modelo2);
+            jl_biblioteca.setModel(modelo1);
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1128,6 +1228,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1162,17 +1263,20 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JDialog jd_admin;
     private javax.swing.JDialog jd_agregarlibro;
     private javax.swing.JDialog jd_comun;
     private javax.swing.JDialog jd_copias;
+    private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_fecha;
     private javax.swing.JDialog jd_genero;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JDialog jd_puntaje;
     private javax.swing.JDialog jd_valor;
     private javax.swing.JList<String> jl_biblioteca;
+    private javax.swing.JList<String> jl_eliminar;
     private javax.swing.JList<String> jl_mislibros;
     private javax.swing.JList<String> jl_mod;
     private javax.swing.JPasswordField pf_contraseñar;
