@@ -304,6 +304,11 @@ public class main extends javax.swing.JFrame {
         });
 
         jButton8.setText("regresar");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
 
         jLabel14.setText("mis libros");
 
@@ -1166,6 +1171,18 @@ public class main extends javax.swing.JFrame {
             jl_biblioteca.setModel(modelo1);
         }
     }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo2 = (DefaultListModel) jl_mislibros.getModel();
+        DefaultListModel modelo1 = (DefaultListModel) jl_biblioteca.getModel();
+        if (jl_mislibros.getSelectedIndex() >= 0) {
+            modelo1.addElement(modelo1.get(jl_biblioteca.getSelectedIndex()));
+            modelo2.remove(jl_biblioteca.getSelectedIndex());
+            jl_mislibros.setModel(modelo2);
+            jl_biblioteca.setModel(modelo1);
+        }
+    }//GEN-LAST:event_jButton8MouseClicked
 
     /**
      * @param args the command line arguments
